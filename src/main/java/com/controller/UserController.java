@@ -10,12 +10,13 @@ import com.Repository.UserRepository;
 
 @Controller
 public class UserController {
+		
 	@Autowired
 	UserRepository userRepo;
 
 	@GetMapping("/signup")
 	public String signUp() {
-		return "SignUp";
+		return "NewSignup";
 	}
 
 	@PostMapping("/saveuser")

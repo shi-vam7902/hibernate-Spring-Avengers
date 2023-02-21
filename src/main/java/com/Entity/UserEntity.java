@@ -1,5 +1,6 @@
 package com.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +19,22 @@ public class UserEntity {
 	private String password;
 	private String cityName;
 	
+	@Column(name="countryName")
+	private String countryName;
+	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getCountry() {
+		return countryName;
+	}
+	public void setCountry(String country) {
+		this.countryName = country;
+	}
 	public Integer getUserId() {
 		return userId;
 	}
