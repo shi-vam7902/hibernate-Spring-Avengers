@@ -24,4 +24,10 @@ public class UserController {
 		userRepo.save(user);
 		return "Login";
 	}
+	
+	@GetMapping("/users")
+	public String getAllUsers(UserEntity user) {
+		
+		return "ListingUsers";
+	}
 }
