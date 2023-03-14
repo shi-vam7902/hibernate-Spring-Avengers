@@ -16,7 +16,17 @@ public class EmployeeEntity {
 	@GeneratedValue
 	int employeeId;
 	String name;
+//	Integer addressId;
 	
+	
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
+	}
+
 	@OneToOne
 	@JoinColumn(name="address_id",referencedColumnName = "addressId")
 	AddressEntity address;

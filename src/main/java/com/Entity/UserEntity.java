@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +18,26 @@ public class UserEntity {
 	private String lastName;
 	private String email;
 	private String password;
-	private String cityName;
+//	private String cityName;
 	
-	@Column(name="countryName")
-	private String countryName;
+//	@ManyToOne
+//	RoleEntity role;
+//	
+//	public RoleEntity getRole() {
+//		return role;
+//	}
+//	public void setRole(RoleEntity role) {
+//		this.role = role;
+//	}
+//	public String getCountryName() {
+//		return countryName;
+//	}
+//	public void setCountryName(String countryName) {
+//		this.countryName = countryName;
+//	}
+//	
+//	@Column(name="countryName")
+//	private String countryName;
 	
 	
 	public String getPassword() {
@@ -29,12 +46,12 @@ public class UserEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getCountry() {
-		return countryName;
-	}
-	public void setCountry(String country) {
-		this.countryName = country;
-	}
+//	public String getCountry() {
+//		return countryName;
+//	}
+//	public void setCountry(String country) {
+//		this.countryName = country;
+//	}
 	public Integer getUserId() {
 		return userId;
 	}
@@ -59,10 +76,10 @@ public class UserEntity {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCityName() {
-		return cityName;
-	}
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
-	} 
+//	public String getCityName() {
+//		return cityName;
+//	}
+//	public void setCityName(String cityName) {
+//		this.cityName = cityName;
+//	} 
 }

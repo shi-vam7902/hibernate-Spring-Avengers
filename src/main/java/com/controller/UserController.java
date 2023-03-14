@@ -11,23 +11,8 @@ import com.Repository.UserRepository;
 @Controller
 public class UserController {
 		
-	@Autowired
-	UserRepository userRepo;
+//	@Autowired
+//	UserRepository userRepo;
 
-	@GetMapping("/signup")
-	public String signUp() {
-		return "NewSignup";
-	}
 
-	@PostMapping("/saveuser")
-	public String saveUser(UserEntity user) {
-		userRepo.save(user);
-		return "Login";
-	}
-	
-	@GetMapping("/users")
-	public String getAllUsers(UserEntity user) {
-		
-		return "ListingUsers";
-	}
 }

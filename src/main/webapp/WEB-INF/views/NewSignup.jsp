@@ -1,19 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Final Signup</title>
+<title>Sign up Page</title>
 </head>
 <body>
 	<form action="saveuser" method="post">
-		FirstName:<input type="text" name="firstname"><br> <br>
-		LastName:<input type="text" name="lastname"><br> <br>
-		Email:<input type="text" name="email"><br> <br>
+		<br>
+		<br> FirstName:<input type="text" name="firstName"><br>
+		<br> LastName:<input type="text" name="lastName"><br>
+		<br> Email:<input type="text" name="email"><br> <br>
 		Password:<input type="text" name="password"><br> <br>
-		CityName:<input type="text" name="city"><br> <input
+		 <input
 			type="submit" value="Save User"> <br>
 	</form>
+	<a href="users">List Users</a>
 </body>
 </html>

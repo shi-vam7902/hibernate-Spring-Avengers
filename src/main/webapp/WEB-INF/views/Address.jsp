@@ -4,12 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login_website name</title>
+<title>Add Address here</title>
 </head>
 <body>
-	<form action="loginemp" method="post">
-	Name :<input type="text" name="name"><br><br>
-	<input type="submit" value="Login ">
-	</form>
+
 </body>
 </html>

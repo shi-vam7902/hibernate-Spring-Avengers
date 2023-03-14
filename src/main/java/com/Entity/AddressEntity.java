@@ -11,13 +11,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name="address")
 public class AddressEntity {
+	
 	@Id
 	@GeneratedValue
 	Integer addressId;
 	String city;
 	String addressLine;
+	
 	@OneToOne(mappedBy = "address")
 	EmployeeEntity employee;
+	
 	public Integer getAddressId() {
 		return addressId;
 	}

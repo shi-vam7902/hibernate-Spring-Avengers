@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.Entity.ProductEntity;
 import com.Repository.ProductRepository;
@@ -45,16 +46,24 @@ public class ProductController {
 	}
 
 	@GetMapping("/editProduct/{productId}") // 5
-	public String editProduct(ProductEntity product, Model model, @PathVariable("productId") Integer productId) {
+	public String editProduct( Model model, @PathVariable("productId") Integer productId) {
 		Optional<ProductEntity> products = productRepository.findById(productId);
-		model.addAttribute(products);
+		ProductEntity entity = null;
+		if (products.isPresent()) {
+			entity = products.get();
+		}
+		System.out.println(products.get());
+//		model.addAttribute("products",entity);
+		model.addAttribute("products", entity);
 
 		return "EditProducts";
 	}
 
-	@PostMapping("/updateProduct")
-	public String EditProduct() {
-		
+	@GetMapping("/updateProduct")
+	public String EditProduct(ProductEntity products) {
+		productRepository.save(products);
 		return "redirect:/listProducts";
 	}
+	
+	
 }
