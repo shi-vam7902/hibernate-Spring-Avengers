@@ -55,7 +55,9 @@ public class ProductController {
 		System.out.println(products.get());
 //		model.addAttribute("products",entity);
 		model.addAttribute("products", entity);
-
+		entity.getProductId();
+		entity.getProductName();
+		
 		return "EditProducts";
 	}
 

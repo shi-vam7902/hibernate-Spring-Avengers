@@ -10,6 +10,7 @@
 	<form method="post" action="saveemp">
 		Name:<input type="text" name="name"><br>
 		<br> <input type="submit" value="Save Employee">
+		<a href="/loginEmp">Add ADDRESS</a>
 	</form>
 </body>
 </html>

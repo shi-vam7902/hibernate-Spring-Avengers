@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Updating Product</h1>
-	<form action="updateProduct" method="post">
+	<form action="../updateProduct" method="post">
 		<input type="hidden" value="${products.productId }" name="productId">
 		ProductName: <input type="text" value="${products.productName }" name="productName"><br>
 		<br> ProductPrice: <input type="text" value="${products.price}"name="price"><br>

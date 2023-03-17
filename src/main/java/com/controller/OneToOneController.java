@@ -1,5 +1,9 @@
 package com.controller;
 
+import java.util.Optional;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,13 +35,14 @@ public class OneToOneController {
 		emplRepo.save(employee);
 		return "NewEmployee";
 	}
-	
-	
-	
+
 	// saving address
 	@PostMapping("/saveaddress")
-	public String saveAddress(AddressEntity addEntity) {
+	public String saveAddress(AddressEntity addEntity,HttpSession session) {
 		addRepo.save(addEntity);
+	EmployeeEntity empsession =	(EmployeeEntity)session.getAttribute("emp");
+	empsession.setAddress(addEntity);
+	emplRepo.save(empsession);
 		return "Login";
 	}
 
@@ -47,17 +52,12 @@ public class OneToOneController {
 	}
 
 	@PostMapping("/loginemp")
-	public String loginEmpAuthenticate(EmployeeEntity employeeEntity) {
-		
-		emplRepo.findByName(employeeEntity.getName());
-		
+	public String loginEmpAuthenticate(EmployeeEntity employeeEntity,HttpSession session) {
+
+	employeeEntity=emplRepo.findByName(employeeEntity.getName());
+
 		System.out.println(employeeEntity.getName());
-		
-		if(employeeEntity ==  null) {
-			return "Login";
-		}else
-		{
-			return "Home";
-		}
+		session.setAttribute("emp",employeeEntity);
+		return "Home";
 	}
 }

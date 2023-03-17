@@ -7,12 +7,12 @@
 <title>Editing Users</title>
 </head>
 <body>
-<form action="updateuser" method="post">
-		<br><input type="hidden"  name="${users.userId}" name="userId">
+<form action="../updateuser" method="post">
+		<br><input type="hidden"  value="${users.userId}" name="userId">
 		<br> FirstName:<input type="text" name="firstName" value="${users.firstName }"><br>
 		<br> LastName:<input type="text" name="lastName"  value="${users.lastName }"><br>
 		<br> Email:<input type="text" name="email"  value="${users.email }"><br> <br>
-		Password:<input type="text" name="password"><br> <br>
+		Password:<input type="text" name="password" value="${users.password}"><br> <br>
 		 <input
 			type="submit" value="EditUser"> <br>
 	</form>

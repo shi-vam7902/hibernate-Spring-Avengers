@@ -16,9 +16,13 @@ public class EmployeeEntity {
 	@GeneratedValue
 	int employeeId;
 	String name;
-//	Integer addressId;
 	
-	
+
+	@OneToOne
+	@JoinColumn(name="address_id",referencedColumnName = "addressId")
+	AddressEntity address;
+
+
 	public AddressEntity getAddress() {
 		return address;
 	}
@@ -27,9 +31,6 @@ public class EmployeeEntity {
 		this.address = address;
 	}
 
-	@OneToOne
-	@JoinColumn(name="address_id",referencedColumnName = "addressId")
-	AddressEntity address;
 
 	public int getEmployeeId() {
 		return employeeId;

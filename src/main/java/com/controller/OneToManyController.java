@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.Entity.ProductEntity;
 import com.Entity.RoleEntity;
@@ -25,6 +26,15 @@ public class OneToManyController {
 	@Autowired
 	UserRepository userRepo;
 
+	// getting inputs from users
+	@GetMapping("/signup")
+	public String signUp(Model model) {
+		List<RoleEntity> roles = roleRepo.findAll();
+		model.addAttribute("roles", roles);
+
+		return "NewSignup";
+	}
+
 // adding role
 	@GetMapping("/addrole")
 	public String addRole() {
@@ -36,15 +46,6 @@ public class OneToManyController {
 	public String saveRole(RoleEntity entity) {
 		roleRepo.save(entity);
 		return "redirect:/addrole";
-	}
-
-// getting inputs from users
-	@GetMapping("/signup")
-	public String signUp(Model model) {
-		List<RoleEntity> roles = roleRepo.findAll();
-		model.addAttribute("roles", roles);
-
-		return "NewSignup";
 	}
 
 //saving user and redirected to list 
@@ -71,13 +72,13 @@ public class OneToManyController {
 
 // edit Users
 	@GetMapping("/edituser/{userId}") // 5
-	public String editProduct( Model model, @PathVariable("userId") Integer userId) {
+	public String editProduct(Model model, @PathVariable("userId") Integer userId) {
 		Optional<UserEntity> u = userRepo.findById(userId);
 		UserEntity ue = null;
 		if (u.isPresent()) {
 			ue = u.get();
 		}
-		
+		System.out.println("The Below Data is To be Updates");
 		System.out.println(ue.getUserId());
 		System.out.println(ue.getEmail());
 		System.out.println(ue.getPassword());
@@ -88,12 +89,16 @@ public class OneToManyController {
 
 		return "EditUsers";
 	}
+
 // update users
-	@GetMapping("/updateuser")
+	@PostMapping("/updateuser")
 	public String Edituser(UserEntity users) {
 		userRepo.save(users);
-		return "redirect:/listProducts";
+		System.out.println(users.getEmail());
+		System.out.println(users.getFirstName());
+		return "redirect:/users";
 	}
+
 // listing Roles
 	@GetMapping("/listroles")
 	public String getAllProducts(RoleEntity roles, Model model) {
